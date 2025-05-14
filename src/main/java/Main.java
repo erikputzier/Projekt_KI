@@ -11,6 +11,8 @@ public class Main {
     private static final Random RNG = new Random();
 
     public static void main(String[] args) {
+        String fen = "7/7/4b22/7/2RGr1r12/4BG2/7 b";
+        Perft.perft(fen, 5);
         /* ---------- initial position ---------- */
         Piece[][] board = BoardInitializer.createStartingPosition();
         boolean redToMove = true;               // red starts (top half)

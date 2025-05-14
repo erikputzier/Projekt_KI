@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Move {
     public final int fromRow, fromCol;
     public final int toRow, toCol;
@@ -24,6 +26,23 @@ public class Move {
     public String toAlgebraic() {
         return "" + (char) ('a' + fromCol) + (7 - fromRow)
                 + (char) ('a' + toCol) + (7 - toRow);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Move move = (Move) o;
+        return fromRow == move.fromRow &&
+                fromCol == move.fromCol &&
+                toRow == move.toRow &&
+                toCol == move.toCol &&
+                moveHeight == move.moveHeight;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fromRow, fromCol, toRow, toCol, moveHeight);
     }
 
     public Move copy() {
