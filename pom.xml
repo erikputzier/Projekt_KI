@@ -27,15 +27,31 @@
           <version>RELEASE</version>
           <scope>test</scope>
       </dependency>
+      <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+      <dependency>
+          <groupId>com.google.code.gson</groupId>
+          <artifactId>gson</artifactId>
+          <version>2.13.1</version>
+      </dependency>
   </dependencies>
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
                 <configuration>
-                    <source>14</source>
-                    <target>14</target>
+                    <release>17</release>            <!-- or 14 if you really must -->
+                </configuration>
+            </plugin>
+
+            <!-- run SelfPlay with “mvn exec:java” -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <mainClass>SelfPlay</mainClass>  <!-- adjust package -->
                 </configuration>
             </plugin>
         </plugins>
